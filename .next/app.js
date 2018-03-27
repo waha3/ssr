@@ -90,7 +90,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "28baa9841c456dd30eff"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "355e165f46e3d7ca792c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -755,7 +755,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + ({"0":"main.js","1":"bundles\\pages\\_error.js","3":"bundles\\pages\\index.js"}[chunkId]||chunkId) + "-" + {"0":"d78f97a8ed18a64badd9","1":"2efc6b4bf9ceeb8db3ad","3":"42fe5f3d0219f6bb5c4c"}[chunkId] + ".js";
+/******/ 		script.src = __webpack_require__.p + "" + ({"0":"main.js","1":"bundles\\pages\\_error.js","3":"bundles\\pages\\index.js","4":"commons"}[chunkId]||chunkId) + "-" + {"0":"d78f97a8ed18a64badd9","1":"2efc6b4bf9ceeb8db3ad","3":"6fac6c963589dabde0b4","4":"a7a7f47fc02116c1f326"}[chunkId] + ".js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -814,7 +814,43 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/ })
 /************************************************************************/
-/******/ ([]);module.exports =
+/******/ ([]);webpackJsonp([4],{
+
+/***/ "./less/app.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+// removed by extract-text-webpack-plugin;
+    if (true) {
+      var injectCss = function injectCss(prev, href) {
+        var link = prev.cloneNode();
+        link.href = href;
+        link.onload = link.onerror = function() {
+          prev.parentNode.removeChild(prev);
+        };
+        prev.stale = true;
+        prev.parentNode.insertBefore(link, prev.nextSibling);
+      };
+      module.hot.dispose(function() {
+        window.__webpack_reload_css__ = true;
+      });
+      module.hot.accept();
+      if (window.__webpack_reload_css__) {
+        module.hot.__webpack_reload_css__ = false;
+        console.log("[HMR] Reloading stylesheets...");
+        var prefix = document.location.protocol + '//' + document.location.hostname;
+        document
+          .querySelectorAll("link[href][rel=stylesheet]")
+          .forEach(function(link) {
+            if (!link.href.match(prefix) || link.stale) return;
+            injectCss(link, link.href.split("?")[0] + "?unix=1522134547082");
+          });
+      }
+    }
+  
+
+/***/ })
+
+});module.exports =
 webpackJsonp([0],{
 
 /***/ "./node_modules/.0.0.7@ansi-html/index.js":

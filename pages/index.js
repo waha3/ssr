@@ -1,26 +1,37 @@
 import React, { Component } from 'react';
-
-// import Link from 'next/link';
+import { Provider } from 'mobx-react';
+import { initStore } from '../store.js';
 import Category from '../component/tab.js';
 import MusicApi from '../api/index.js';
-import Header from './header.js';
-// import 'antd/dist/antd.less';
+import '../less/app.less';
 
 export default class Root extends Component {
-  static async getInitialProps() {
-    MusicApi.getRecommendSongList();
-    return {};
+  static async getInitialProps({req}) {
+    const isServer = !!req;
+    const res = await MusicApi.getRecommendSongList();
+    const json = await res.json();
+    return {
+      recommendList: json,
+      isServer
+    };
   }
 
-  componentDidMount() {}
+  constructor(props) {
+    super(props);
+    const { isServer, lastUpdate } = props;
+    this.store = initStore(isServer, lastUpdate);
+  }
 
   render() {
+    const { recommendList } = this.props;
     return (
-      <Header>
+      <Provider store={this.store}>
         <div className="root">
-          <Category />
+          <Category
+            recommendList={recommendList}
+          />
         </div>
-      </Header>
+      </Provider>
     );
   }
 }

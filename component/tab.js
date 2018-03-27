@@ -9,9 +9,9 @@ export default class Category extends Component {
   render() {
     return (
       <Tabs defaultActiveKey="1" onChange={this.handleChange}>
-        <TabPane tab="Tab 1" key="1">推荐音乐</TabPane>
-        <TabPane tab="Tab 2" key="2">热歌榜</TabPane>
-        <TabPane tab="Tab 3" key="3">搜索</TabPane>
+        <TabPane tab="推荐音乐" key="1">{''}</TabPane>
+        <TabPane tab="热歌榜" key="2">{''}</TabPane>
+        <TabPane tab="搜索" key="3">{''}</TabPane>
       </Tabs>
     );
   }

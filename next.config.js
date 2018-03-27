@@ -1,4 +1,4 @@
 const withLess = require('@zeit/next-less');
-module.exports = withLess({
-  cssModules: true
-});
+// const withCss = require('@zeit/next-css');
+
+module.exports = withLess();
