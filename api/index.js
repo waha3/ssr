@@ -16,6 +16,10 @@ export default class MusicApi {
   static mobileLogin(cellphone, password) {
     return `/login?${cellphone}&${password}`;
   }
+
+  static getPlaylist(id) {
+    return fetch(`${this.path}/playlist/detail?id=${id}`);
+  }
 }
 
 

@@ -1,21 +1,28 @@
-import { observable } from 'mobx';
+import { observable, action } from 'mobx';
+import MusicApi from './api/index.js';
 
 let store = null;
 
 class Store {
-  @observable lastUpdate = 0;
+  @observable personalizedList = [];
 
-  constructor(isServer, lastUpdate) {
-    this.lastUpdate = lastUpdate;
+  constructor(isServer, recommendList) {
+    this.personalizedList = [...recommendList];
+  }
+
+  @action('获取歌单详情')
+  getPlaylistAction = async (id) => {
+    const res = await MusicApi.getPlaylist(id);
+    console.log(res);
   }
 }
 
-export function initStore(isServer, lastUpdate = Date.now()) {
+export function initStore(isServer, recommendList = []) {
   if (isServer) {
-    return new Store(isServer, lastUpdate);
+    return new Store(isServer, recommendList);
   } else {
     if (store === null) {
-      store = new Store(isServer, lastUpdate);
+      store = new Store(isServer, recommendList);
     }
     return store;
   }

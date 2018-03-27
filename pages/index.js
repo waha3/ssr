@@ -11,25 +11,22 @@ export default class Root extends Component {
     const res = await MusicApi.getRecommendSongList();
     const json = await res.json();
     return {
-      recommendList: json,
+      recommendList: json.result,
       isServer
     };
   }
 
   constructor(props) {
     super(props);
-    const { isServer, lastUpdate } = props;
-    this.store = initStore(isServer, lastUpdate);
+    const { isServer, recommendList } = props;
+    this.store = initStore(isServer, recommendList);
   }
 
   render() {
-    const { recommendList } = this.props;
     return (
       <Provider store={this.store}>
         <div className="root">
-          <Category
-            recommendList={recommendList}
-          />
+          <Category />
         </div>
       </Provider>
     );
